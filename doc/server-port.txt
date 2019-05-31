@@ -1,0 +1,6 @@
+kr-center 8761
+kr-config 8750
+kr-auth 9777
+kr-gate 8765
+kr-admin 8780
+kr-scientific 8782

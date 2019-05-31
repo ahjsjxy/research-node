@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ronglian.kangrui.generator.mapper.GeneratorMapper">
+	<select id="queryList" resultType="map">
+		select name as tableName from sysobjects where xtype='u'
+		<if test="tableName != null and tableName.trim() != ''">
+			and name like concat('%', #{tableName}, '%')
+		</if>
+	</select>
+
+	<select id="queryTotal" resultType="int">
+		select count(*) from sysobjects where  xtype='u'
+		<if test="tableName != null and tableName.trim() != ''">
+			and name like concat('%', #{tableName}, '%')
+		</if>
+	</select>
+
+	<select id="queryTable" resultType="map">
+		select name as tableName from sysobjects where xtype='u'  and name = #{tableName}
+	</select>
+
+	<select id="queryColumns" resultType="map">
+			select a.name as columnName ,b.name as dataType from syscolumns a
+left join sys.types b
+on a.xtype = b.user_type_id
+ where id=(select max(id) from sysobjects where xtype='u' and name=#{tableName} );
+	</select>
+</mapper>

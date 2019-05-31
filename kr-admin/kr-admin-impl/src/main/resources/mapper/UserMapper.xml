@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ronglian.kangrui.saas.research.admin.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.ronglian.kangrui.saas.research.admin.entity.User">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="mobile_phone" property="mobilePhone" jdbcType="VARCHAR" />
+    <result column="admin_flag" property="adminFlag" jdbcType="INTEGER" />
+    <result column="center_id" property="centerId" jdbcType="INTEGER" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="enable_flag" property="enableFlag" jdbcType="INTEGER" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="BIGINT" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="BIGINT" />
+    <result column="update_user_name" property="updateUserName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="StudyUserVoMap" type="com.ronglian.kangrui.saas.research.admin.vo.user.UserVo">
+      <id column="id" property="id"/>
+      <result column="username" property="username"/>
+      <result column="name" property="name"/>
+  </resultMap>
+
+
+  <select id="getUserList" resultMap="StudyUserVoMap">
+      select
+	      bu.id,
+	      bu.username,
+	      bu.name
+	  from
+	    base_user bu
+      where
+        bu.deleted=0
+        and bu.enable_flag=1
+        and bu.audit_status=1
+        and bu.id!=1
+  </select>
+
+</mapper>

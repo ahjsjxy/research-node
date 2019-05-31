@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ronglian.kangrui.saas.research.sci.mapper.StudyRoleUserMapper" >
+  <resultMap id="BaseResultMap" type="com.ronglian.kangrui.saas.research.sci.entity.StudyRoleUser" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+  </resultMap>
+
+
+  <resultMap id="StudyUserVoMap" type="com.ronglian.kangrui.saas.research.sci.vo.StudyUserVo">
+    <id column="id" property="id"/>
+    <result column="username" property="username"/>
+    <result column="name" property="name"/>
+  </resultMap>
+
+
+  <select id="getUserListByRoleId" parameterType="java.lang.Long" resultMap="StudyUserVoMap">
+        select
+            bu.id,
+            bu.username,
+            bu.name
+        from
+            base_user bu,
+            study_role_user sru
+        where
+            sru.user_id=bu.id
+            and bu.deleted=0
+            and bu.enable_flag=1
+            and bu.audit_status=1
+            and sru.role_id=#{roleId}
+  </select>
+
+
+   <select id="getValidUserListByRoleId" parameterType="java.lang.Long" resultMap="StudyUserVoMap">
+        select
+              bu.id,
+              bu.username,
+              bu.name
+            from
+              study_user su,
+              base_user bu
+        where
+            su.user_id=bu.id
+            and bu.deleted=0
+            and bu.enable_flag=1
+            and bu.audit_status=1
+            and su.study_id=(select study_id from study_role sr where sr.id=#{roleId} and sr.deleted=0)
+            and bu.id not in
+            (
+                select
+                    bu.id
+                from
+                    base_user bu, study_role_user sru
+                where
+                    sru.user_id=bu.id
+                    and bu.deleted=0
+                    and bu.enable_flag=1
+                    and bu.audit_status=1
+                    and sru.role_id=#{roleId}
+            )
+   </select>
+
+
+</mapper>

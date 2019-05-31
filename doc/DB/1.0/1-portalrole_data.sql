@@ -1,0 +1,10 @@
+INSERT INTO `portal_button` VALUES ('1', 'study_list_delete', '项目列表-删除', '0', '2019-05-28 01:55:06', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('2', 'study_list_setting', '项目列表-设置', '0', '2019-05-28 01:55:26', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('3', 'study_object_add', '研究对象-添加', '0', '2019-05-28 01:56:04', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('4', 'study_object_delete', '研究对象-删除', '0', '2019-05-28 01:56:26', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('5', 'study_object_setting', '研究对象-设置', '0', '2019-05-28 01:56:43', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('6', 'study_object_edit_save', '研究对象-编辑保存', '0', '2019-05-28 01:57:23', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('7', 'study_object_edit_submit', '研究对象-编辑提交', '0', '2019-05-28 01:57:40', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('8', 'study_object_edit_pass', '研究对象-编辑通过', '0', '2019-05-28 01:58:09', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('9', 'study_object_edit_nopass', '研究对象-编辑不通过', '0', '2019-05-28 01:58:21', '1', null, null, null, null);
+INSERT INTO `portal_button` VALUES ('10', 'study_analysis', '项目-统计分析', '0', '2019-05-28 01:59:43', '1', null, null, null, null);
