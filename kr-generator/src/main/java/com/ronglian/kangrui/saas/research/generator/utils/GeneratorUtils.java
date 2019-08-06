@@ -30,8 +30,8 @@ public class GeneratorUtils {
 
     public static List<String> getTemplates() {
         List<String> templates = new ArrayList<String>();
-        templates.add("template/index.js.vm");
-        templates.add("template/index.vue.vm");
+//        templates.add("template/index.js.vm");
+//        templates.add("template/index.vue.vm");
         templates.add("template/mapper.xml.vm");
         templates.add("template/biz.java.vm");
         templates.add("template/entity.java.vm");
@@ -39,8 +39,8 @@ public class GeneratorUtils {
         templates.add("template/api.java.vm");
 
         templates.add("template/manager.java.vm");
-        templates.add("template/service.intf.java.vm");
-        templates.add("template/service.impl.java.vm");
+//        templates.add("template/service.intf.java.vm");
+//        templates.add("template/service.impl.java.vm");
         return templates;
     }
 

@@ -1,0 +1,10 @@
+com\ronglian\kangrui\saas\research\generator\GeneratorBootstrap.class
+com\ronglian\kangrui\saas\research\generator\config\WebConfig.class
+com\ronglian\kangrui\saas\research\generator\rest\GeneratorRest.class
+com\ronglian\kangrui\saas\research\generator\utils\GeneratorUtils.class
+com\ronglian\kangrui\saas\research\generator\controller\HomeController.class
+com\ronglian\kangrui\saas\research\generator\mapper\GeneratorMapper.class
+com\ronglian\kangrui\saas\research\generator\utils\DateUtils.class
+com\ronglian\kangrui\saas\research\generator\service\GeneratorService.class
+com\ronglian\kangrui\saas\research\generator\entity\ColumnEntity.class
+com\ronglian\kangrui\saas\research\generator\entity\TableEntity.class
